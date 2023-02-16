@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:to_do_flutter_app/blocs/bloc_exports.dart';
+import 'package:to_do_flutter_app/models/task.dart';
+import '../widgets/tasks_list.dart';
+
+class CompletedTasksScreen extends StatelessWidget {
+  const CompletedTasksScreen({Key? key}) : super(key: key);
+  static const id = 'tasks_screen';
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TasksBloc, TasksState>(
+      builder: (context, state) {
+        List<Task> tasksList = state.completedTasks;
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: Chip(
+                label: Text(
+                  tasksList.length > 1 
+                  ? '${tasksList.length} Completed Tasks'
+                  : '${tasksList.length} Completed Tasks',
+                ),
+              ),
+            ),
+            TasksList(tasksList: tasksList)
+          ],
+        );
+      },
+    );
+  }
+}
