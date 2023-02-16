@@ -1,4 +1,4 @@
-# Go Svelte Chat App
+# FlutterToDoApp
 
 An application written in <b>Flutter</b> that allows user to create a to-do list. <br>
 The application was written to improve my flutter programming skills and to learn how to use the <b>Bloc pattern</b> with a <b>Hydrated Block</b>.
